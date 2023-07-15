@@ -6,32 +6,32 @@ using namespace std;
 class ShapeCal {
 public:
     void run() {
-        int numShapes = getNumShapes();  // µµÇüÀÇ °³¼ö¸¦ ÀÔ·Â¹Ş´Â ÇÔ¼ö È£Ãâ
-        inputShapes(numShapes);  // µµÇüµéÀÇ Á¤º¸¸¦ ÀÔ·Â¹Ş´Â ÇÔ¼ö È£Ãâ
-        calDulraes();  // µµÇüÀÇ µÑ·¹¸¦ °è»êÇÏ´Â ÇÔ¼ö È£Ãâ
-        printResult();  // °á°ú¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö È£Ãâ
+        int numShapes = getNumShapes();  // ë„í˜•ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥ë°›ëŠ” í•¨ìˆ˜ í˜¸ì¶œ
+        inputShapes(numShapes);  // ë„í˜•ë“¤ì˜ ì •ë³´ë¥¼ ì…ë ¥ë°›ëŠ” í•¨ìˆ˜ í˜¸ì¶œ
+        calDulraes();  // ë„í˜•ì˜ ë‘˜ë ˆë¥¼ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œ
+        printResult();  // ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œ
     }
 
 private:
     struct Shape {
-        int type; // µµÇüÀÇ Á¾·ù¸¦ ³ªÅ¸³»´Â º¯¼ö
-        vector<double> lengths; // µµÇüÀÇ º¯ ±æÀÌ¸¦ ÀúÀåÇÏ´Â º¤ÅÍ
+        int type; // ë„í˜•ì˜ ì¢…ë¥˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜
+        vector<double> lengths; // ë„í˜•ì˜ ë³€ ê¸¸ì´ë¥¼ ì €ì¥í•˜ëŠ” ë²¡í„°
         double dulrae;
     };
 
-    vector<Shape> shapes;  // µµÇüµéÀ» ÀúÀåÇÏ´Â º¤ÅÍ
+    vector<Shape> shapes;  // ë„í˜•ë“¤ì„ ì €ì¥í•˜ëŠ” ë²¡í„°
 
     int getNumShapes() {
         int numShapes;
         while (true) {
-            cout << "µµÇüÀÇ °³¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä (0À» ÀÔ·ÂÇÏ¸é Á¾·á): ";
+            cout << "ë„í˜•ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” (0ì„ ì…ë ¥í•˜ë©´ ì¢…ë£Œ): ";
             cin >> numShapes;
 
-            // ÀÔ·ÂµÈ µµÇüÀÇ °³¼ö°¡ 0 ÀÌ»óÀÎÁö È®ÀÎÇÕ´Ï´Ù.
+            // ì…ë ¥ëœ ë„í˜•ì˜ ê°œìˆ˜ê°€ 0 ì´ìƒì¸ì§€ í™•ì¸í•©ë‹ˆë‹¤.
             if (numShapes >= 0) {
-                break;  // ¿Ã¹Ù¸¥ °©½Ã ÀÔ·ÂµÈ °æ¿ì ¹İº¹¹®À» Á¾·áÇÕ´Ï´Ù.
+                break;  // ì˜¬ë°”ë¥¸ ê°‘ì‹œ ì…ë ¥ëœ ê²½ìš° ë°˜ë³µë¬¸ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.
             } else {
-                cout << "¿À·ù: µµÇüÀÇ °³¼ö´Â 0 ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù." << endl;
+                cout << "ì˜¤ë¥˜: ë„í˜•ì˜ ê°œìˆ˜ëŠ” 0 ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤." << endl;
             }
         }
         return numShapes;
@@ -40,14 +40,14 @@ private:
     int getShapeType() {
         int shapeType;
         while (true) {
-            cout << "µµÇüÀÇ Á¾·ù¸¦ ÀÔ·ÂÇÏ¼¼¿ä (1: ¿ø, 2: Á÷»ç°¢Çü, 3: »ï°¢Çü): ";
+            cout << "ë„í˜•ì˜ ì¢…ë¥˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” (1: ì›, 2: ì§ì‚¬ê°í˜•, 3: ì‚¼ê°í˜•): ";
             cin >> shapeType;
 
-            // ÀÔ·ÂµÈ µµÇüÀÇ Á¾·ù°¡ 1¿¡¼­ 3 »çÀÌÀÎÁö È®ÀÎÇÕ´Ï´Ù.
+            // ì…ë ¥ëœ ë„í˜•ì˜ ì¢…ë¥˜ê°€ 1ì—ì„œ 3 ì‚¬ì´ì¸ì§€ í™•ì¸í•©ë‹ˆë‹¤.
             if (shapeType >= 1 && shapeType <= 3) {
-                break;  // ¿Ã¹Ù¸¥ °ªÀÌ ÀÔ·ÂµÈ °æ¿ì ¹İº¹¹®À» Á¾·áÇÕ´Ï´Ù
+                break;  // ì˜¬ë°”ë¥¸ ê°’ì´ ì…ë ¥ëœ ê²½ìš° ë°˜ë³µë¬¸ì„ ì¢…ë£Œí•©ë‹ˆë‹¤
             } else {
-                cout << "¿À·ù: 1¿¡¼­ 3 »çÀÌÀÇ °ªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+                cout << "ì˜¤ë¥˜: 1ì—ì„œ 3 ì‚¬ì´ì˜ ê°’ì„ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
             }
         }
         return shapeType;
@@ -57,20 +57,20 @@ private:
     vector<double> getShapeLengths(int shapeType) {
         int numLengths;
         switch (shapeType) {
-            case 1: // ¿ø
+            case 1: // ì›
                 numLengths = 1;
                 break;
-            case 2: // Á÷»ç°¢Çü
+            case 2: // ì§ì‚¬ê°í˜•
                 numLengths = 2;
                 break;
-            case 3: // »ï°¢Çü
+            case 3: // ì‚¼ê°í˜•
                 numLengths = 3;
                 break;
         }
 
         vector<double> lengths(numLengths);
         for (int i = 0; i < numLengths; ++i) {
-            cout << "±æÀÌ #" << (i + 1) << ": ";
+            cout << "ê¸¸ì´ #" << (i + 1) << ": ";
             cin >> lengths[i];
         }
         return lengths;
@@ -80,14 +80,14 @@ private:
         double maxDulrae = numeric_limits<double>::min();
         double sumLengths = 0.0;
 
-        // ÁÖ¾îÁø ±æÀÌ Áß °¡Àå ±ä ±æÀÌ¿Í ±æÀÌÀÇ ÇÕÀ» °è»êÇÕ 
+        // ì£¼ì–´ì§„ ê¸¸ì´ ì¤‘ ê°€ì¥ ê¸´ ê¸¸ì´ì™€ ê¸¸ì´ì˜ í•©ì„ ê³„ì‚°í•© 
         for (vector<double>::const_iterator it = lengths.begin(); it != lengths.end(); ++it) {
             double length = *it;
             maxDulrae = max(maxDulrae, length);
             sumLengths += length;
         }
 
-        // »ï°¢ÇüÀÌ µÇ´Â Á¶°Ç È®ÀÎ
+        // ì‚¼ê°í˜•ì´ ë˜ëŠ” ì¡°ê±´ í™•ì¸
         return (maxDulrae < sumLengths - maxDulrae);
     }
 
@@ -97,10 +97,10 @@ private:
             shape.type = getShapeType();
             shape.lengths = getShapeLengths(shape.type);
 
-            // »ï°¢ÇüÀÎ °æ¿ì Á¶°Ç °Ë»ç
+            // ì‚¼ê°í˜•ì¸ ê²½ìš° ì¡°ê±´ ê²€ì‚¬
             if (shape.type == 3 && !isTriangle(shape.lengths)) {
-                cout << "¿À·ù: »ï°¢ÇüÀÌ ¾Æ´Ñ ±æÀÌÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
-                --i;  // ´Ù½Ã ÀÔ·Â ¹Ş±â À§ÇØ i¸¦ °¨¼Ò½ÃÅ´
+                cout << "ì˜¤ë¥˜: ì‚¼ê°í˜•ì´ ì•„ë‹Œ ê¸¸ì´ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
+                --i;  // ë‹¤ì‹œ ì…ë ¥ ë°›ê¸° ìœ„í•´ ië¥¼ ê°ì†Œì‹œí‚´
                 continue;
             }
 
@@ -114,13 +114,13 @@ private:
             double dulrae = 0.0;
 
             switch (shape.type) {
-                case 1: // ¿ø
+                case 1: // ì›
                     dulrae = 2 * 3.14159 * shape.lengths[0];
                     break;
-                case 2: // Á÷»ç°¢Çü
+                case 2: // ì§ì‚¬ê°í˜•
                     dulrae = 2 * (shape.lengths[0] + shape.lengths[1]);
                     break;
-                case 3: // »ï°¢Çü
+                case 3: // ì‚¼ê°í˜•
                     dulrae = shape.lengths[0] + shape.lengths[1] + shape.lengths[2];
                     break;
             }
@@ -129,30 +129,30 @@ private:
         }
     }
 
-    void printResult() { // µµÇüµéÀ» ¼øÈ¸ÇÏ¸é¼­ Á¤º¸¸¦ Ãâ·ÂÇÕ´Ï´Ù
+    void printResult() { // ë„í˜•ë“¤ì„ ìˆœíšŒí•˜ë©´ì„œ ì •ë³´ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤
         for (vector<Shape>::iterator it = shapes.begin(); it != shapes.end(); ++it) { 
-            const Shape& shape = *it; // ÇöÀç µµÇü¿¡ ´ëÇÑ ·¹ÆÛ·±½º¸¦ °¡Á®¿É´Ï´Ù.
+            const Shape& shape = *it; // í˜„ì¬ ë„í˜•ì— ëŒ€í•œ ë ˆí¼ëŸ°ìŠ¤ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
             string shapeName;
-            switch (shape.type) { // µµÇüÀÇ Á¾·ù¿¡ µû¶ó ÀÌ¸§À» ¼³Á¤ÇÕ´Ï´Ù.
+            switch (shape.type) { // ë„í˜•ì˜ ì¢…ë¥˜ì— ë”°ë¼ ì´ë¦„ì„ ì„¤ì •í•©ë‹ˆë‹¤.
                 case 1:
-                    shapeName = "¿ø";
+                    shapeName = "ì›";
                     break;
                 case 2:
-                    shapeName = "Á÷»ç°¢Çü";
+                    shapeName = "ì§ì‚¬ê°í˜•";
                     break;
                 case 3:
-                    shapeName = "»ï°¢Çü";
+                    shapeName = "ì‚¼ê°í˜•";
                     break;
             }
-            cout << shapeName << " ("; // µµÇüÀÇ ÀÌ¸§À» Ãâ·ÂÇÕ´Ï´Ù.
+            cout << shapeName << " ("; // ë„í˜•ì˜ ì´ë¦„ì„ ì¶œë ¥í•©ë‹ˆë‹¤.
             for (vector<double>::size_type i = 0; i < shape.lengths.size(); ++i) {
-                cout << "±æÀÌ #" << (i + 1) << ": " << shape.lengths[i]; // ¸¶Áö¸· ±æÀÌ°¡ ¾Æ´Ñ °æ¿ì ½°Ç¥¸¦ Ãâ·ÂÇÕ´Ï´Ù.
+                cout << "ê¸¸ì´ #" << (i + 1) << ": " << shape.lengths[i]; // ë§ˆì§€ë§‰ ê¸¸ì´ê°€ ì•„ë‹Œ ê²½ìš° ì‰¼í‘œë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
                 if (i != shape.lengths.size() - 1) {
                     cout << ", ";
                 }
-            } // µÑ·¹ ±æÀÌ¸¦ Ãâ·ÁÇÕ´Ï´Ù.
-            cout << ") - µÑ·¹ ±æÀÌ: " << shape.dulrae << endl;
-        }
+            } // ë‘˜ë ˆ ê¸¸ì´ë¥¼ ì¶œë ¤í•©ë‹ˆë‹¤.
+            cout << ") - ë‘˜ë ˆ ê¸¸ì´: " << shape.dulrae << endl;
+        } //ì£¼ì„ì¶”ê°€
     }
 };
 
